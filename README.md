@@ -1,8 +1,8 @@
-#node-mongo-seeds 
+# node-mongo-seeds 
 [![Build Status](https://travis-ci.org/toymachiner62/node-mongo-seeds.svg?branch=master)](https://travis-ci.org/toymachiner62/node-mongo-seeds)
 [![Code Climate](https://codeclimate.com/github/toymachiner62/node-mongo-seeds/badges/gpa.svg)](https://codeclimate.com/github/toymachiner62/node-mongo-seeds)
 
-A tool to quickly populate your mongo db from a set of .json files. The concept is very similar to Ruby on Rails idea of seeding a database. This allows a new developer to pull down the source code for a project (which contains .json files to populate their mongodb with) and run a command and bingo!! database populated and ready to rock.
+> A tool to quickly populate your mongo db from a set of .json files. The concept is very similar to Ruby on Rails idea of seeding a database. This allows a new developer to pull down the source code for a project (which contains .json files to populate their mongodb with) and run a command and bingo!! database populated and ready to rock.
 
 ## Usage
 
@@ -12,15 +12,16 @@ A tool to quickly populate your mongo db from a set of .json files. The concept 
 - Create a `/seeds` folder in your project root and put `.json` files in there.
 		The name of the file is going to be the collection name in mongo and the contents
 		of the file will be populated into that mongo collection.
+	- Note that this package supports the [mongo-extended-json syntax](https://docs.mongodb.com/manual/reference/mongodb-extended-json/)
 - Run `$ seed` to seed your mongodb with all your data from your `/seeds` folder.
 
 **Note**: Every time you run `$ seed` it will blow away all the data in your collections and re-populate them with whatever is in your `/seeds` directory.
 
 ### Separate databases per NODE_ENV
 
-You can have separate databases for each NODE_ENV that you are using. Just a put a line in seed.json for each NODE_ENV that you are going to use. It defaults to "undefined", "dev", and "prod" but can be changed to whatever.
+You can have separate databases for each NODE_ENV that you are using. Just a put a line in seed.json for each `NODE_ENV` that you are going to use. It defaults to `undefined`, `dev`, and `prod` but can be changed to whatever.
 
-##Contributing
+## Contributing
 
 1. Clone project and run `npm install -g ./` from project root
 2. Add feature(s) 
@@ -29,9 +30,10 @@ You can have separate databases for each NODE_ENV that you are using. Just a put
 
 ### Running Tests
 
-To run the tests, follow these instructions. Note: the process is a little odd to have to cd into ./test and do an npm install and then cd to project root
+To run the tests, follow these instructions.
 
-1. From project root, `$ cd ./test` and `$ npm install`
-2. `$ cd ..` (Back to project root) and `$ npm test`
+1. Start mongod process		
+2. From project root `$ npm install`	
+3. Run test command `$ npm test`
 
 Enjoy!
